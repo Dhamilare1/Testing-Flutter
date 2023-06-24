@@ -1,4 +1,5 @@
-import 'package:firstapp/practice.dart';
+import 'package:firstapp/screens/welcome.dart';
+import 'package:firstapp/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +15,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Axiforma',
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(name:'Damilare', age: 32,)
+      home: const WelcomeScreen()
     );
   }
 }
+
 
 class MyHomePage extends StatelessWidget {
   final String name;
@@ -43,34 +46,27 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: Text('Name: $name'),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: Text('Age: ${age != null ? age.toString() : 'Unknown'}'),
-            ),
+            ButtonWidget(name: name),
+            ButtonWidget(name: age.toString()),
           ],
+        ),
+        
+      ),
+      bottomNavigationBar:  BottomAppBar(
+        child: Container(
+          color: Colors.red,
+          padding:const EdgeInsets.all(10),
+          child:  Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('home', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white,),),
+              Text('cart',style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
+              Text('about', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-          child: Container(
-            color: Colors.red,
-        padding: const EdgeInsets.all(10),
-        child:  Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('home', style:Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
-            Text('cart', style:Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
-            Text('about', style:Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
-          ],
-        ),
-      )),
+      
     );
   }
 }
