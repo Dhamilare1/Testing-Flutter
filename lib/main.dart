@@ -1,3 +1,4 @@
+import 'package:firstapp/practice.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,6 +7,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,10 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(
-        name: 'damilare',
-        age: 39,
-      ),
+      home: const MyHomePage(name:'Damilare', age: 32,)
     );
   }
 }
@@ -39,8 +38,7 @@ class MyHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Colors.red, borderRadius: BorderRadius.circular(10)
-        ),
+            color: Colors.red, borderRadius: BorderRadius.circular(10)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,6 +58,19 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+          child: Container(
+            color: Colors.red,
+        padding: const EdgeInsets.all(10),
+        child:  Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('home', style:Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
+            Text('cart', style:Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
+            Text('about', style:Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
+          ],
+        ),
+      )),
     );
   }
 }
