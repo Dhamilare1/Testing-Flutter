@@ -1,3 +1,4 @@
+import 'package:firstapp/screens/onboarding/onboarding_1.dart';
 import 'package:firstapp/screens/welcome.dart';
 import 'package:firstapp/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -11,13 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/' : (context)=> const WelcomeScreen(),
+        'onboarding_1' : (context)=> const Onboarding1Screen(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Axiforma',
         primarySwatch: Colors.red,
       ),
-      home: const WelcomeScreen()
     );
   }
 }

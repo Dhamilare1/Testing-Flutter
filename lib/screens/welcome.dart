@@ -27,10 +27,13 @@ class WelcomeScreen extends StatelessWidget {
                     children: [
                       Text('Dams', style:Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
                       Text('....Save a Life', style:Theme.of(context).textTheme.headlineLarge?.copyWith(color: const Color(0xff616161), fontSize: 12))],
-                  )
+                  ),
                 ],
               ),
+              TextButton(onPressed: (){ Navigator.pushNamed(context, 'onboarding_1');}, child: Text('continue >>>>'))
+
             ],
+            
           ),
           Positioned(
               right: 0,
