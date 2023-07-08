@@ -1,3 +1,4 @@
+import 'package:firstapp/screens/onboarding/onboarding_1.dart';
 import 'package:firstapp/screens/welcome.dart';
 import 'package:firstapp/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/' : (context)=> const WelcomeScreen(),
+        'onboarding_1' :  (context)=> const Onboarding1Screen()
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -25,11 +31,6 @@ class MyApp extends StatelessWidget {
 
 
 class MyHomePage extends StatelessWidget {
-  final String name;
-  final int? age;
-
-  const MyHomePage({super.key, required this.name, this.age});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +43,11 @@ class MyHomePage extends StatelessWidget {
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             color: Colors.red, borderRadius: BorderRadius.circular(10)),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ButtonWidget(name: name),
-            ButtonWidget(name: age.toString()),
+            
           ],
         ),
         
@@ -63,6 +63,7 @@ class MyHomePage extends StatelessWidget {
               Text('cart',style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
               Text('about', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
             ],
+            
           ),
         ),
       ),

@@ -30,6 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                   )
                 ],
               ),
+                TextButton(onPressed: (){Navigator. pushNamed(context, 'onboarding');}, child: const Text ('continue>>>>'))
             ],
           ),
           Positioned(
